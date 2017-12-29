@@ -1,3 +1,4 @@
+#author dengguo
 import pymysql
 
 pymysql.install_as_MySQLdb()
