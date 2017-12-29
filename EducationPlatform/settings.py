@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'EducationPlatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'EduPlatform',
+        'NAME': 'EducationPlatform',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'happya11',
         'HOST': '127.0.0.1'
     }
 }
