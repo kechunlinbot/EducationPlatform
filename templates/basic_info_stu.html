@@ -12,14 +12,14 @@
 <body>
     <div class="container">
         <br>
-        <h4 class="text-info">基本信息</h4>
+        <h4 class="text-info">学生信息</h4>
         <form class="form-horizontal">
           <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">
                 <a data-toggle="tooltip" data-placement="top" title="真实姓名！">姓名</a>
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputName" placeholder="孙雄飞">
+              <input type="text" class="form-control" id="inputName" placeholder="孙雄飞" name="real_name">
             </div>
           </div>
           <div class="form-group">
@@ -27,7 +27,7 @@
                 手机号码
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputPhone" placeholder="110... 11位数字">
+              <input type="text" class="form-control" id="inputPhone" placeholder="110... 11位数字" name="mobile">
             </div>
           </div>
           <div class="form-groupp">
@@ -35,8 +35,8 @@
                 性别
               </label>
               <div class="radio">
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="sex" value="1">男</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="sex" value="0">女</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="gender" >男</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="gender" >女</label>
               </div><br>
           </div>
           <div class="form-group">
@@ -44,7 +44,7 @@
                 身高
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputheight" placeholder="180">
+              <input type="text" class="form-control" id="inputheight" placeholder="180" name="height">
             </div>
           </div>
           <div class="form-group">
@@ -52,7 +52,7 @@
                 体重
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputweight" placeholder="180 ">
+              <input type="text" class="form-control" id="inputweight" placeholder="180 " name="weight">
             </div>
           </div>
           <div class="form-groupp">
@@ -60,25 +60,25 @@
                 <a data-toggle="tooltip" data-placement="top" title="真实学历！">学历</a>
               </label>
               <div class="radio">
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="1">小学</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="2">初中</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="3">中专/高中</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="4">专科/本科</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="5">硕士研究生</label>
-                  &nbsp&nbsp&nbsp<label><input type="radio" name="degrees" value="6">博士研究生</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >小学</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >初中</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >中专/高中</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >专科/本科</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >硕士研究生</label>
+                  &nbsp&nbsp&nbsp<label><input type="radio" name="degree" >博士研究生</label>
               </div><br>
           </div>
           <div class="form-group">
               <label for="experience" class="col-sm-2 control-label">
                 学习经历
               </label>
-              <textarea class="form-control" rows="5" id="comment"></textarea>
+              <textarea class="form-control" rows="5" id="comment" name="learning"></textarea>
           </div>
           <div class="form-group">
               <label for="Anaphylaxis" class="col-sm-2 control-label">
                 过敏史
               </label>
-              <textarea class="form-control" rows="5" id="comment"></textarea>
+              <textarea class="form-control" rows="5" id="comment" name="allergies"></textarea>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
