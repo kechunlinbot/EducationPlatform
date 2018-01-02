@@ -5,71 +5,80 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/basic_info_stu.css">
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js/basic_info_stu.js"></script>
 </head>
 <body>
     <div class="container">
         <br>
         <h4 class="text-info">学生信息</h4>
         <form class="form-horizontal">
+            <!--将行内元素添加float-left可将元素变为同一行-->
           <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">
+            <label for="inputName" class="col-sm-2 control-label float-left">
                 <a data-toggle="tooltip" data-placement="top" title="真实姓名！">姓名</a>
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8 float-left">
               <input type="text" class="form-control" id="inputName" placeholder="孙雄飞" name="real_name">
             </div>
           </div>
+
           <div class="form-group">
-                手机号码
-            <div class="col-sm-10">
+                <p class="col-sm-2 float-left">手机号码</p>
+            <div class="col-sm-8 float-left">
               <input type="text" class="form-control" id="inputPhone" placeholder="110... 11位数字" name="mobile">
             </div>
           </div>
-          <div class="form-groupp">
-                性别
-              <div class="radio">
+
+            <div class="form-group">
+                <p class="col-sm-2 float-left">性别</p>
+              <div class="radio col-sm-8 float-left">
                   &nbsp&nbsp&nbsp<input type="radio" name="gender" value="1">男
                   &nbsp&nbsp&nbsp<input type="radio" name="gender" value="0">女
               </div><br>
           </div>
-          <div class="form-group">
-                身高
-            <div class="col-sm-10">
+
+            <div class="form-group">
+                <p class="col-sm-2 float-left"> 身高</p>
+            <div class="col-sm-8 float-left">
               <input type="text" class="form-control" id="inputheight" placeholder="180" name="height">
             </div>
           </div>
-          <div class="form-group">
-                体重
-            <div class="col-sm-10">
+
+            <div class="form-group">
+                <p class="col-sm-2 float-left">体重</p>
+            <div class="col-sm-8 float-left">
               <input type="text" class="form-control" id="inputweight" placeholder="180 " name="weight">
             </div>
           </div>
-          <div class="form-groupp">
-                <a data-toggle="tooltip" data-placement="top" title="真实学历！">学历</a>
-              <div class="radio">
+          <div class="form-group">
+                <a data-toggle="tooltip" data-placement="top" title="真实学历！" class="col-sm-2 float-left">学历</a>
+              <div class="radio col-sm-8 float-left">
+                  <!--尽量不要使用&nbsp，实现样式分离-->
                   &nbsp&nbsp&nbsp<input type="radio" name="degree" >中专/高中
                   &nbsp&nbsp&nbsp<input type="radio" name="degree" >专科/本科
                   &nbsp&nbsp&nbsp<input type="radio" name="degree" >硕士研究生
                   &nbsp&nbsp&nbsp<input type="radio" name="degree" >博士研究生
               </div><br>
           </div>
-          <div class="form-group">
-                学习经历
+          <div class="form-group high">
+              <p>学习经历</p>
               <textarea class="form-control" rows="5" name="learning"></textarea>
           </div>
-          <div class="form-group">
-                过敏史
+          <div class="form-group high">
+                <p>过敏史</p>
               <textarea class="form-control" rows="5" id="comment" name="allergies"></textarea>
           </div>
-          <div class="form-group">
+          <div class="form-group info">
             <div class="col-sm-offset-2 col-sm-10">
               <a href="#" class="btn btn-info" role="button">注册</a>
             </div>
           </div>
         </form>
     </div>
+
 </body>
 </html>
