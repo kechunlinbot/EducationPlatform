@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>元智校内网</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <title>元智校内网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <br>
-        <h2 class="text-info">元智教育</h2>
-        <h4 class="text-info">我们这里有最强的IT导师！<small>还在犹豫什么？</small></h4><br>
-        <form class="form-horizontal">
-          <div class="form-group">
+<div class="container">
+    <br>
+    <h2 class="text-info">元智教育</h2>
+    <h4 class="text-info">我们这里有最强的IT导师！
+        <small>还在犹豫什么？</small>
+    </h4>
+    <br>
+    <form class="form-horizontal" action="{% url 'register_stu' %}" method="post">
+        <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">
-                <a data-toggle="tooltip" data-placement="top" title="必须是英文名！">用户名</a>
+                <a data-toggle="tooltip" data-placement="top" title="必须是英文名哦！">用户名</a>
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
+                <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
             </div>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">
                 <a data-toggle="tooltip" data-placement="top" title="特殊字符只接受 _">密码</a>
             </label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password">
             </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <a href="#" class="btn btn-info" role="button">提交</a>
+        </div>
+        <p style="color: red">{{ msg }}{% for key, err in stu_reg_form.errors.items %}
+            {{ err }}
+        {% endfor %}</p>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10"><input type="submit" class="btn btn-info" value="提交">
             </div>
-          </div>
-        </form>
-    </div>
+        </div>
+        {% csrf_token %}
+    </form>
+</div>
 </body>
 </html>

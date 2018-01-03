@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'students',
     'teachers',
+    'homework',
+    'classes',
     'xadmin',
     'crispy_forms',
 ]
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'EducationPlatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,7 +85,7 @@ WSGI_APPLICATION = 'EducationPlatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'EducationPlatform',
+        'NAME': 'dggg',
         'USER': 'root',
         'PASSWORD': 'happya11',
         'HOST': '127.0.0.1'
