@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .forms import StuRegForm, StuInfoForm, StuLogForm
-from .models import StudentsModel
+from .models import Student
 from django.contrib.auth.hashers import make_password, check_password
 
 
@@ -18,7 +18,7 @@ class StuRegisterView(View):
         if stu_reg_form.is_valid():
             name = stu_reg_form.cleaned_data['name']
             password = stu_reg_form.cleaned_data['password']
-            student = StudentsModel.objects.filter(name=name)
+            student = Student.objects.filter(name=name)
             if student: # 用户名已存在
                 return render(request, 'register_info_stu.html', {'msg': '用户名已存在'})
             return render(request, 'basic_info_stu.html', {'name': name,
@@ -42,7 +42,7 @@ class StuRegisterInfo(View):
             learning = stu_info_form.cleaned_data['learning']
             allergies = stu_info_form.cleaned_data['allergies']
 
-            student = StudentsModel()
+            student = Student()
             student.name = name
             student.password = make_password(password)
             student.real_name = real_name
@@ -67,7 +67,7 @@ class StuLoginView(View):
         if stu_log_form.is_valid():
             name = stu_log_form.cleaned_data['name']
             password = stu_log_form.cleaned_data['password']
-            student = StudentsModel.objects.filter(name=name)
+            student = Student.objects.filter(name=name)
             if student:
                 hash_password = make_password(password)
                 result = check_password(student.password, hash_password)

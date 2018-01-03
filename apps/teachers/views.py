@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .forms import TchRegForm, TchInfoForm, TchLogForm
-from .models import TeachersModel
+from .models import Teacher
 from django.contrib.auth.hashers import make_password, check_password
 
 
@@ -19,7 +19,7 @@ class TchRegisterView(View):
         if tch_reg_form.is_valid():
             name = tch_reg_form.cleaned_data['name']
             password = tch_reg_form.cleaned_data['password']
-            student = TeachersModel.objects.filter(name=name)
+            student = Teacher.objects.filter(name=name)
             if student:  # 用户名已存在
                 return render(request, 'register_info_tea.html', {'msg': '用户名已存在'})
             return render(request, 'basic_info_tea.html', {'name': name,
@@ -41,7 +41,7 @@ class TchRegisterInfo(View):
             major = tch_info_form.cleaned_data['major']
             email = tch_info_form.cleaned_data['email']
 
-            teacher = TeachersModel()
+            teacher = Teacher()
             teacher.name = name
             teacher.password = make_password(password)
             teacher.real_name = real_name
@@ -65,7 +65,7 @@ class TchLoginView(View):
         if tch_log_form.is_valid():
             name = tch_log_form.cleaned_data['name']
             password = tch_log_form.cleaned_data['password']
-            teacher = TeachersModel.objects.filter(name=name)
+            teacher = Teacher.objects.filter(name=name)
             if teacher:
                 hash_password = make_password(password)
                 result = check_password(teacher.password, hash_password)

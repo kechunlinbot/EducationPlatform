@@ -17,10 +17,8 @@ from django.conf.urls import url
 import xadmin
 import students
 from students.views import StuRegisterView, StuLoginView
-from students import views
 import teachers
 from teachers.views import TchRegisterView, TchLoginView
-from teachers import views
 
 
 urlpatterns = [
@@ -34,15 +32,8 @@ urlpatterns = [
     url(r'^register_tch/$', TchRegisterView.as_view(), name="register_tch"),
     url(r'^register_info_tch/$', TchRegisterView.as_view(), name="register_info_tch"),
     url(r'^homepage_tch/$', teachers.views.homepage_tch, name='homepage_tch'),
-    url(r'^login_tch/$', StuLoginView.as_view(), name='login_tch'),
+    url(r'^login_tch/$', TchLoginView.as_view(), name='login_tch'),
     url(r'^logout_tch/$', teachers.views.logout_tch),
-
-from students.views import RegisterView
-
-urlpatterns = [
-    url(r'^xadmin/', xadmin.site.urls),
-    url('^register/$', RegisterView.as_view(), name="register"),
-    url('^register_info/$', RegisterView.as_view(), name="register_info"),
 
 ]
 
