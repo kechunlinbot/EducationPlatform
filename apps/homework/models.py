@@ -14,7 +14,7 @@ IS_COMPLETE = IS_BONUS
 
 
 class Assignment(models.Model):
-    question = models.CharField(QuestionBank, verbose_name='题目')
+    question = models.ForeignKey(QuestionBank, verbose_name='题目')
     class_name = models.ForeignKey(Class, verbose_name='班级')
     teacher = models.ForeignKey(Teacher, verbose_name='教师')
     module = models.ForeignKey(KnowledgeBase, verbose_name='知识模块')
@@ -34,8 +34,8 @@ class Assignment(models.Model):
 class Submission(models.Model):
     assignment = models.ForeignKey(Assignment, verbose_name='作业')
     is_complete = models.CharField(max_length=1, choices=IS_COMPLETE, default=0, verbose_name='题目状态')
-    complete_time = models.IntegerField(max_length=5, default=0, verbose_name='完成时间(分钟数)')
-    py_file_path = models.CharField(max_length=200, default=0, verbose_name='.py文件路径')
+    complete_time = models.CharField(max_length=5, default='0', verbose_name='完成时间(分钟数)')
+    py_file_path = models.CharField(max_length=200, default='', verbose_name='.py文件路径')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
