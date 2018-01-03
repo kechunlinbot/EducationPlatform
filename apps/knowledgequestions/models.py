@@ -2,18 +2,10 @@
 from django.db import models
 from datetime import datetime
 
-from teachers.models import Teacher
-from classes.models import Class
-
 DIFFICULTY_LEVELS = (
     ('beginner', '初级'),
     ('intermediate', '中级'),
     ('advanced', '高级'),
-)
-
-GRADES = (
-    ('first', '一级模块'),
-    ('second', '二级模块'),
 )
 
 
@@ -22,8 +14,6 @@ class Course(models.Model):
     detail = models.TextField(verbose_name='课程详情')
     difficulty_level = models.CharField(max_length=6, choices=DIFFICULTY_LEVELS, default='beginner', verbose_name='难易程度')
     category = models.CharField(max_length=20, default='后端', verbose_name='课程类型')
-    teacher = models.ForeignKey(Teacher, verbose_name='教师', null=True, blank=True)
-    class_name = models.ForeignKey(Class, verbose_name='班级', null=True, blank=True)
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
@@ -35,9 +25,26 @@ class Course(models.Model):
         return self.name
 
 
-class KnowledgeBase(models.Model):
+class Module(models.Model):
     course = models.ForeignKey(Course, verbose_name='课程')
-    module = models.CharField(max_length=6, choices=GRADES, default='first', verbose_name='知识模块')
+    name = models.CharField(max_length=20, verbose_name='模块名称')
+    add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
+
+    class Meta:
+        verbose_name = '知识模块'
+        verbose_name_plural = verbose_name
+        db_table = 'modules'
+
+    def __repr__(self):
+        return self.name
+
+    def get_knowledgebase(self):
+        return self.knowledgebase_set.all()
+
+
+class KnowledgeBase(models.Model):
+    module = models.ForeignKey(Module, verbose_name='知识模块')
+    name = models.CharField(max_length=50, verbose_name='二级模块')
     knowledge_point = models.CharField(max_length=100, null=True, blank=True, verbose_name='知识点')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
@@ -47,14 +54,14 @@ class KnowledgeBase(models.Model):
         db_table = 'knowledgebase'
 
     def __repr__(self):
-        return '%s:%s' % (self.course, self.module)
+        return self.name
 
 
 class QuestionBank(models.Model):
     title = models.CharField(max_length=50, verbose_name='题目名称')
     content = models.TextField(verbose_name='题目内容')
     difficulty_level = models.CharField(max_length=6, choices=DIFFICULTY_LEVELS, default='beginner', verbose_name='难易程度')
-    knowledge_module = models.ForeignKey(KnowledgeBase, verbose_name='知识模块')
+    knowledge_module = models.ForeignKey(Module, verbose_name='知识模块')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
