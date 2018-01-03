@@ -37,6 +37,12 @@ urlpatterns = [
     url(r'^login_tch/$', StuLoginView.as_view(), name='login_tch'),
     url(r'^logout_tch/$', teachers.views.logout_tch),
 
-]
+from students.views import RegisterView
 
+urlpatterns = [
+    url(r'^xadmin/', xadmin.site.urls),
+    url('^register/$', RegisterView.as_view(), name="register"),
+    url('^register_info/$', RegisterView.as_view(), name="register_info"),
+
+]
 

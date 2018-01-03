@@ -1,8 +1,4 @@
 # @author shi.qi.chang
-<<<<<<< Updated upstream
-# @author shi.qi.chang
-=======
->>>>>>> Stashed changes
 from django import forms
 
 

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'teachers',
     'homework',
     'classes',
+    'knowledgequestions',
     'xadmin',
     'crispy_forms',
 ]
@@ -85,9 +86,9 @@ WSGI_APPLICATION = 'EducationPlatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dggg',
+        'NAME': 'EducationPlatform',
         'USER': 'root',
-        'PASSWORD': 'happya11',
+        'PASSWORD': 'csq347',
         'HOST': '127.0.0.1'
     }
 }
