@@ -14,7 +14,7 @@ IS_COMPLETE = IS_BONUS
 
 
 class Assignment(models.Model):
-    question = models.CharField(QuestionBank, verbose_name='题目')
+    question = models.ForeignKey(QuestionBank, verbose_name='题目')
     class_name = models.ForeignKey(Class, verbose_name='班级')
     teacher = models.ForeignKey(Teacher, verbose_name='教师')
     module = models.ForeignKey(KnowledgeBase, verbose_name='知识模块')
