@@ -1,7 +1,12 @@
+# @author shi.qi.chang
 from django.db import models
 from datetime import datetime
 
+<<<<<<< Updated upstream
 from classes.models import ClassModel
+=======
+from classes.models import Class
+>>>>>>> Stashed changes
 
 GENDERS = (
     ('male', '男'),
@@ -16,9 +21,13 @@ DEGREES = (
 )
 
 
+<<<<<<< Updated upstream
 class StudentsModel(models.Model):
     """学生类"""
 
+=======
+class Student(models.Model):
+>>>>>>> Stashed changes
     name = models.CharField(max_length=50, unique=True, verbose_name='英文名')
     password = models.CharField(max_length=200, verbose_name='密码')
     real_name = models.CharField(max_length=50, verbose_name='真实姓名')
@@ -29,13 +38,18 @@ class StudentsModel(models.Model):
     weight = models.IntegerField(verbose_name='体重')
     learning = models.TextField(verbose_name='学习经历')
     allergies = models.TextField(verbose_name='过敏史')
+<<<<<<< Updated upstream
     reg_date = models.DateTimeField(default=datetime.now, verbose_name='注册时间')
     class_student = models.ForeignKey(ClassModel, verbose_name='所属班级')
+=======
+    class_student = models.ForeignKey(Class, verbose_name='所属班级')
+>>>>>>> Stashed changes
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
         verbose_name = '学生管理'
         verbose_name_plural = verbose_name
+        db_table = 'students'
 
     def __repr__(self):
         return self.name
