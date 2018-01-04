@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>元智校内网</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <title>元智校内网</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/register_info_all.css">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <br>
-    <h2 class="text-info">元智教育</h2>
-    <h4 class="text-info">我们这里有最强的IT导师！
-        <small>还在犹豫什么？</small>
-    </h4>
-    <br>
-    <form class="form-horizontal" action="{% url 'register_info_stu' %}" method="post">
-        <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">
-                <a data-toggle="tooltip" data-placement="top" title="必须是英文名哦！">用户名</a>
-            </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
-            </div>
+    <div class="bg"></div>
+    <h1 class="text-info">元智教育</h1>
+    <h4 class="text-info">我们这里有最强的IT导师！<small>还在犹豫什么？</small></h4><br>
+<div class="panel">
+    <input type="radio" id="switch-open" name="switch"/>
+    <input type="radio" id="switch-close" name="switch"/>
+    <div class="login">
+
+        <div class="group"><i class="fa fa-users" aria-hidden="true"></i>
+            <input type="text" id="user" placeholder="用户名"/>
+            <label title="必须是英文名！"></label>
         </div>
-        <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">
-                <a data-toggle="tooltip" data-placement="top" title="特殊字符只接受 _">密码</a>
-            </label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password">
-            </div>
+        <div class="group"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="password" id="password" placeholder="密码"/>
+            <label title="特殊字符只接受 _"></label>
         </div>
-        <p style="color: red">{{ msg }}{% for key, err in stu_reg_form.errors.items %}
-            {{ err }}
-        {% endfor %}</p>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10"><input type="submit" class="btn btn-info" value="提交">
-            </div>
+        <div id="warning">
+            <p>请输入正确的用户名和密码!</p>
         </div>
-        {% csrf_token %}
-    </form>
+        <input id="infobtn" type="submit" value="提交"/>
+    </div>
+    <div class="register">
+        <div class="inner">
+            <h1>REGISTER</h1>
+            <div class="group"><i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text" id="name" placeholder="Name"/>
+                <label for="name"></label>
+            </div>
+            <div class="group"><i class="fa fa-envelope" aria-hidden="true"></i>
+                <input type="text" placeholder="E-Mail"/>
+                <label for="email"></label>
+            </div>
+            <div class="group"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                <input type="password" placeholder="Password"/>
+                <label for="password"></label>
+            </div>
+            <input type="submit" value="REGISTER"/>
+        </div>
+    </div>
 </div>
+    <script type="text/javascript">
+        $("#infobtn").click(
+            function () {
+                if($('#user').val()==''||$('#password').val()==''){
+                    $("#warning").css("display","inline");
+                }
+            });
+    </script>
 </body>
 </html>
