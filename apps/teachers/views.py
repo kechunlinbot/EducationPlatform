@@ -4,7 +4,6 @@ from .forms import TchRegForm, TchInfoForm, TchLogForm
 from .models import Teacher
 from django.contrib.auth.hashers import make_password, check_password
 
-
 # Create your views here.
 def homepage_tch(request):
     return render(request, 'home_page_tea.html')
@@ -51,7 +50,7 @@ class TchRegisterInfo(View):
             teacher.major = major
             teacher.email = email
             teacher.save()
-            return render(request, 'basic_info_tea.html', )
+            return render(request, 'log_in_tea.html', {})
         else:
             return render(request, 'basic_info_tea.html', {'tch_info_form': tch_info_form})
 
