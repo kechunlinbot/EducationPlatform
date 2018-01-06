@@ -7,9 +7,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../static/css/basic_info_stu.css">
+  <script src="../static/js/jquery.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <style>
   .float-left{
 		float:left;
@@ -28,6 +28,9 @@
 		margin-left:25%;
 		margin-bottom:60px;
   }
+  .sel_color{
+      
+  }
   </style>
 </head>
 <body>
@@ -43,16 +46,16 @@
     </nav>
 	<div style="text-align:center;">
 	<div style="">
-    <h2>作业发布</h2>
+    <h2 class="text-info">作业发布</h2>
     <div class="float-left first">
-        <select name="" id="">
+        <select class="sel_color" name="" id="">
             <option value='#'>班级</option>
             <option value='#'>0826</option>
             <option value='#'>1026 </option>
         </select>
     </div>
     <div class="float-left">
-        <select name="" id="">
+        <select class="sel_color" name="" id="">
             <option value="#">课程</option>
             <option value="#">Python</option>
             <option value="#">Java</option>
@@ -60,11 +63,19 @@
         </select>
     </div>
     <div class="float-left">
-        <select name="" id="">
+        <select class="sel_color" name="" id="">
             <option value="#">章节</option>
             <option value="#">元组</option>
             <option value="#">列表</option>
             <option value="#">字符串</option>
+        </select>
+    </div>
+    <div class="float-left">
+        <select class="sel_color" name="" id="">
+            <option value="#">模块</option>
+            <option value="#">一级</option>
+            <option value="#">二级</option>
+            <option value="#">三级</option>
         </select>
     </div>
     </div>
@@ -78,10 +89,17 @@
 					</div>
 					<div id="panel-element-383422" class="panel-collapse collapse">
 						<div class="panel-body">
-							<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-            参考完成时间:<p>{{ time }}</p>
-						</div>
-						<input type="radio" name="month" value="1">是否加分题
+                            <form action="#">
+                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                题目难度:<p>{{ nandu }}</p>
+                                参考完成时间:<p>{{ time }}</p>
+                                是否加分题: <input type="radio" name="problem" value="no">不是
+                                          <input type="radio" name="problem" value="yes">是
+                                <br>
+                                是否发布此题：<input type="radio" name="release" value="no">不
+                                            <input type="radio" name="release" value="yes">好
+                            </form>
+                        </div>
 					</div>
 				</div>
 				<div class="panel panel-default">
@@ -90,10 +108,74 @@
 					</div>
 					<div id="panel-element-395559" class="panel-collapse collapse">
 						<div class="panel-body">
-							<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-            参考完成时间:<p>{{ time }}</p>
+                            <form action="#">
+                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                题目难度:<p>{{ nandu }}</p>
+                                参考完成时间:<p>{{ time }}</p>
+                                是否加分题: <input type="radio" name="problem" value="no">不是
+                                          <input type="radio" name="problem" value="yes">是
+                                <br>
+                                是否发布此题：<input type="radio" name="release" value="no">不
+                                            <input type="radio" name="release" value="yes">好
+                            </form>
 						</div>
-						<input type="radio" name="month" value="1">是否加分题
+					</div>
+				</div>
+                <div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395558">题目3</a>
+					</div>
+					<div id="panel-element-395558" class="panel-collapse collapse">
+						<div class="panel-body">
+                            <form action="#">
+                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                题目难度:<p>{{ nandu }}</p>
+                                参考完成时间:<p>{{ time }}</p>
+                                是否加分题: <input type="radio" name="problem" value="no">不是
+                                          <input type="radio" name="problem" value="yes">是
+                                <br>
+                                是否发布此题：<input type="radio" name="release" value="no">不
+                                            <input type="radio" name="release" value="yes">好
+                            </form>
+						</div>
+					</div>
+				</div>
+                <div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395560">题目4</a>
+					</div>
+					<div id="panel-element-395560" class="panel-collapse collapse">
+						<div class="panel-body">
+                            <form action="#">
+                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                题目难度:<p>{{ nandu }}</p>
+                                参考完成时间:<p>{{ time }}</p>
+                                是否加分题: <input type="radio" name="problem" value="no">不是
+                                          <input type="radio" name="problem" value="yes">是
+                                <br>
+                                是否发布此题：<input type="radio" name="release" value="no">不
+                                            <input type="radio" name="release" value="yes">好
+                            </form>
+						</div>
+					</div>
+				</div>
+                <div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395561">题目5</a>
+					</div>
+					<div id="panel-element-395561" class="panel-collapse collapse">
+						<div class="panel-body">
+                            <form action="#">
+                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                题目难度:<p>{{ nandu }}</p>
+                                参考完成时间:<p>{{ time }}</p>
+                                是否加分题: <input type="radio" name="problem" value="no">不是
+                                          <input type="radio" name="problem" value="yes">是
+                                <br>
+                                是否发布此题：<input type="radio" name="release" value="no">不
+                                            <input type="radio" name="release" value="yes">好
+                            </form>
+						</div>
 					</div>
 				</div>
 			</div>
