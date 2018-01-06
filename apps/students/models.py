@@ -1,6 +1,6 @@
 # @author shi.qi.chang
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 from classes.models import Class
 
@@ -18,23 +18,22 @@ DEGREES = (
 
 
 class Student(models.Model):
-    name = models.CharField(max_length=50, unique=True, verbose_name='英文名')
-    password = models.CharField(max_length=200, verbose_name='密码')
-    real_name = models.CharField(max_length=50, verbose_name='真实姓名')
+    en_name = models.CharField(max_length=20, unique=True, verbose_name='英文名')
+    password = models.CharField(max_length=50, verbose_name='密码')
+    real_name = models.CharField(max_length=20, verbose_name='真实姓名')
     gender = models.CharField(max_length=6, choices=GENDERS, verbose_name='性别', default='male')
-    degree = models.CharField(max_length=20, choices=DEGREES, verbose_name='学历', default='undergraduate')
+    degree = models.CharField(max_length=13, choices=DEGREES, verbose_name='学历', default='undergraduate')
     mobile = models.CharField(max_length=11, verbose_name='手机号')
     height = models.IntegerField(verbose_name='身高')
     weight = models.IntegerField(verbose_name='体重')
-    learning = models.TextField(verbose_name='学习经历')
-    allergies = models.TextField(verbose_name='过敏史')
-    class_student = models.ForeignKey(Class, verbose_name='所属班级')
-    add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
+    learning = models.CharField(max_length=200, verbose_name='学习经历')
+    allergies = models.CharField(max_length=200, verbose_name='过敏史')
+    class_name = models.ForeignKey(Class, verbose_name='所属班级')
+    add_time = models.DateTimeField(default=timezone.now, verbose_name='添加时间')
 
     class Meta:
         verbose_name = '学生管理'
         verbose_name_plural = verbose_name
-        db_table = 'students'
 
     def __repr__(self):
-        return self.name
+        return self.en_name
