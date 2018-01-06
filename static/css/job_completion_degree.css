@@ -1,0 +1,36 @@
+  .float-left{
+		float:left;
+		margin:50px 60px;
+  }
+  .nav-item{
+		margin:20px 40px;
+		font-size:20px;
+  }
+  .navbar-nav li{
+      list-style:none;
+  }
+  .first{
+		margin-left:39%;
+  }
+  .panel-group{
+		width:50%;
+		margin-left:25%;
+		margin-bottom:60px;
+  }
+  .sel_color{
+      width: 65px;
+      height: 25px;
+      color: white;
+      background: SteelBlue;
+  }
+  .con_color{
+      color: white;
+      background: SteelBlue;
+  }
+  .font_sz{
+      font-size: 20px;
+
+  }
+  .text-info li{
+      list-style:none;
+  }
