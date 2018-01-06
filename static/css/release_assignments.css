@@ -1,0 +1,27 @@
+  .float-left{
+		float:left;
+		margin:50px 60px;
+  }
+  .nav-item{
+		margin:20px 40px;
+		font-size:20px;
+
+  }
+  .first{
+		margin-left:35%;
+  }
+  .panel-group{
+		width:50%;
+		margin-left:25%;
+		margin-bottom:60px;
+  }
+  .sel_color{
+      width: 65px;
+      height: 25px;
+      color: white;
+      background: SteelBlue;
+  }
+  .con_color{
+      color: white;
+      background: SteelBlue;
+  }
