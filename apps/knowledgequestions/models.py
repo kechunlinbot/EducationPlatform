@@ -14,10 +14,10 @@ class Course(models.Model):
     detail = models.CharField(max_length=100, verbose_name='课程详情')
     difficulty_level = models.CharField(max_length=6, choices=DIFFICULTY_LEVELS, default='beginner', verbose_name='难易程度')
     category = models.CharField(max_length=20, default='后端', verbose_name='课程类型')
-    created_time = models.DateTimeField(verbose_name='创建时间')
-    modified_time = models.DateTimeField(blank=True, verbose_name='修改时间')
-    creater = models.ForeignKey(User, verbose_name='创建者')
-    modifier = models.ForeignKey(User, blank=True, verbose_name='修改者')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+    creater = models.ForeignKey(User, default='', related_name='+', verbose_name='创建者')
+    modifier = models.ForeignKey(User, related_name='+', blank=True, verbose_name='修改者')
 
     class Meta:
         verbose_name = '课程'
@@ -30,10 +30,10 @@ class Course(models.Model):
 class Module(models.Model):
     course = models.ForeignKey(Course, verbose_name='课程')
     name = models.CharField(max_length=20, verbose_name='模块名称')
-    created_time = models.DateTimeField(verbose_name='创建时间')
-    modified_time = models.DateTimeField(blank=True, verbose_name='修改时间')
-    creater = models.ForeignKey(User, verbose_name='创建者')
-    modifier = models.ForeignKey(User, blank=True, verbose_name='修改者')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+    creater = models.ForeignKey(User, default='', related_name='+', verbose_name='创建者')
+    modifier = models.ForeignKey(User, related_name='+', blank=True, verbose_name='修改者')
 
     class Meta:
         verbose_name = '知识模块'
@@ -50,10 +50,10 @@ class KnowledgeBase(models.Model):
     module = models.ForeignKey(Module, verbose_name='知识模块')
     name = models.CharField(max_length=30, verbose_name='二级模块')
     knowledge_point = models.CharField(max_length=50, blank=True, verbose_name='知识点')
-    created_time = models.DateTimeField(verbose_name='创建时间')
-    modified_time = models.DateTimeField(blank=True, verbose_name='修改时间')
-    creater = models.ForeignKey(User, verbose_name='创建者')
-    modifier = models.ForeignKey(User, blank=True, verbose_name='修改者')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+    creater = models.ForeignKey(User, default='', related_name='+', verbose_name='创建者')
+    modifier = models.ForeignKey(User, related_name='+', blank=True, verbose_name='修改者')
 
     class Meta:
         verbose_name = '知识库'
@@ -68,10 +68,10 @@ class QuestionBank(models.Model):
     content = models.CharField(max_length=500, verbose_name='题目内容')
     difficulty_level = models.CharField(max_length=6, choices=DIFFICULTY_LEVELS, default='beginner', verbose_name='难易程度')
     module = models.ForeignKey(Module, verbose_name='知识模块')
-    created_time = models.DateTimeField(verbose_name='创建时间')
-    modified_time = models.DateTimeField(blank=True, verbose_name='修改时间')
-    creater = models.ForeignKey(User, verbose_name='创建者')
-    modifier = models.ForeignKey(User, blank=True, verbose_name='修改者')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+    creater = models.ForeignKey(User, default='', related_name='+', verbose_name='创建者')
+    modifier = models.ForeignKey(User, related_name='+', blank=True, verbose_name='修改者')
 
     class Meta:
         verbose_name = '题库'
