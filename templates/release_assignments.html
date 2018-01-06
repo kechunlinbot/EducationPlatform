@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title> 元智校内网</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+  <style>
+  .float-left{
+		float:left;
+		margin:50px 60px;
+  }
+  .nav-item{
+		margin:20px 40px;
+		font-size:20px;
+		
+  }
+  .first{
+		margin-left:35%;
+  }
+  .panel-group{
+		width:50%;
+		margin-left:25%;
+		margin-bottom:60px;
+  }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">作业发布</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">作业完成度</a>
+        </li>
+      </ul>
+    </nav>
+	<div style="text-align:center;">
+	<div style="">
+    <h2>作业发布</h2>
+    <div class="float-left first">
+        <select name="" id="">
+            <option value='#'>班级</option>
+            <option value='#'>0826</option>
+            <option value='#'>1026 </option>
+        </select>
+    </div>
+    <div class="float-left">
+        <select name="" id="">
+            <option value="#">课程</option>
+            <option value="#">Python</option>
+            <option value="#">Java</option>
+            <option value="#">MySQL</option>
+        </select>
+    </div>
+    <div class="float-left">
+        <select name="" id="">
+            <option value="#">章节</option>
+            <option value="#">元组</option>
+            <option value="#">列表</option>
+            <option value="#">字符串</option>
+        </select>
+    </div>
+    </div>
+    <div style="clear:both;">
+	
+	<div class="col-md-12 column">
+			<div class="panel-group" id="panel-853706">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-383422">题目1</a>
+					</div>
+					<div id="panel-element-383422" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+            参考完成时间:<p>{{ time }}</p>
+						</div>
+						<input type="radio" name="month" value="1">是否加分题
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395559">题目2</a>
+					</div>
+					<div id="panel-element-395559" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+            参考完成时间:<p>{{ time }}</p>
+						</div>
+						<input type="radio" name="month" value="1">是否加分题
+					</div>
+				</div>
+			</div>
+		</div>
+	
+    <br>
+    <a href="#">
+        <button type="button" class="btn btn-outline-info">发布</button>
+    </a>
+	</div>
+    </div>
+ </body>
+</html>
