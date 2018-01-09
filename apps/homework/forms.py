@@ -17,3 +17,8 @@ class CompletionForm(forms.Form):
     class_name = forms.CharField(required=True)
     course = forms.CharField(required=True)
     created_time = forms.CharField(required=True)
+
+
+class FileForm(forms.Form):
+    """文件上传表单类"""
+    file = forms.FileField()
