@@ -4,14 +4,14 @@ from django import forms
 
 class TchRegForm(forms.Form):
     """教师注册信息表单类"""
-    name = forms.CharField(min_length=3, max_length=20)
-    password = forms.CharField(min_length=6, max_length=50)
+    en_name = forms.CharField(min_length=3, max_length=20)
+    passwd = forms.CharField(min_length=6, max_length=50)
 
 
 class TchLogForm(forms.Form):
     """教师登录信息表单类"""
-    name = forms.CharField(min_length=3, max_length=20)
-    password = forms.CharField(min_length=6, max_length=50)
+    en_name = forms.CharField(min_length=3, max_length=20)
+    passwd = forms.CharField(min_length=6, max_length=50)
 
 
 class TchInfoForm(forms.Form):

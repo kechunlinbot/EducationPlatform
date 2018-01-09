@@ -16,4 +16,4 @@ class CompletionForm(forms.Form):
     """作业完成度表单类"""
     class_name = forms.CharField(required=True)
     course = forms.CharField(required=True)
-    first_module = forms.CharField(required=True)
+    created_time = forms.CharField(required=True)
