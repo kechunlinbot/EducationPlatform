@@ -25,7 +25,7 @@ class Teacher(models.Model):
     major = models.CharField(max_length=30, verbose_name='专业')
     school = models.CharField(max_length=20, verbose_name='学校')
     email = models.EmailField(verbose_name='邮箱')
-    add_time = models.DateTimeField(default=timezone.now, verbose_name='添加时间')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
 
     class Meta:
         verbose_name = '教师管理'
@@ -34,11 +34,13 @@ class Teacher(models.Model):
     def __repr__(self):
         return self.en_name
 
+    __str__ = __repr__
+
 
 class ClassTeacher(models.Model):
     class_name = models.ForeignKey(Class, verbose_name='班级')
     teacher = models.ForeignKey(Teacher, verbose_name='教师')
-    add_time = models.DateTimeField(default=timezone.now, verbose_name='添加时间')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
 
     class Meta:
         verbose_name = '班级老师'
@@ -46,3 +48,5 @@ class ClassTeacher(models.Model):
 
     def __repr__(self):
         return '%s:%s' % (self.class_name, self.teacher)
+
+    __str__ = __repr__
