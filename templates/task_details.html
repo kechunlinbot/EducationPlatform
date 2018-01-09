@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../static/image/favicon.ico" type="image/x-icon">
+    <title> 元智校内网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/background_all.css">
+    <link rel="stylesheet" href="../static/css/release_assignments.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="text-info">
+        <br>
+        <h1 class="text-center">邓果</h1>
+        <p class="text-center">日期：{{ date }}</p>
+    </div>
+    <div class="col-md-12 column">
+      <div class="panel-group con" id="panel-853706">
+        <div class="panel panel-default con_color">
+          <div class="panel-heading">
+             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-383422">
+                 题目1 &nbsp&nbsp&nbsp 状态：{{ status }}
+             </a>
+          </div>
+          <div id="panel-element-383422" class="panel-collapse collapse">
+            <div class="panel-body">
+                <a href="#" class="con_color">内容内容内容内容内容内容内容内容内容</a>
+                <br>
+                题目难度:<p>{{ nandu }}</p>
+                参考完成时间:<p>{{ time }}</p>
+                是否加分题: <p>{{ bonus_question }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div>
+          <a href="#" class="panel-group">
+              <button class="btn btn-primary" type="button">返回上一层</button>
+          </a>
+      </div>
+    </div>
+</body>
+</html>

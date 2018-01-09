@@ -5,7 +5,9 @@
   .nav-item{
 		margin:20px 40px;
 		font-size:20px;
-
+  }
+  .navbar-nav li{
+      list-style:none;
   }
   .first{
 		margin-left:35%;

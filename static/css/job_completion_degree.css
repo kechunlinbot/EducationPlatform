@@ -2,8 +2,11 @@
 		float:left;
 		margin:50px 60px;
   }
+  .navbar a {
+      color: #00868B;
+  }
   .nav-item{
-		margin:20px 40px;
+		margin:30px 10px;
 		font-size:20px;
   }
   .navbar-nav li{
@@ -21,16 +24,18 @@
       width: 65px;
       height: 25px;
       color: white;
-      background: SteelBlue;
+      background: steelblue;
   }
   .con_color{
       color: white;
-      background: SteelBlue;
+      background: steelblue;
   }
   .font_sz{
       font-size: 20px;
-
   }
   .text-info li{
       list-style:none;
+  }
+  .text-info a {
+      color: #000000;
   }

@@ -1,0 +1,75 @@
+.tit_cs {
+    text-align: center;
+}
+.tit_cs h2 {
+    color: deepskyblue;
+}
+.tit_cs h3 {
+    color: deepskyblue;
+}
+.tit_cs p {
+    color: black;
+    font-size: 20px;
+}
+.btn_cs {
+    text-align: center;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.end_btn {
+    text-align: right;
+    margin: 30%;
+}
+.end_btn button {
+    color: white;
+    background: deepskyblue;
+    width: 100px;
+    height: 30px;
+}
+.file_cs {
+    text-align: center;
+    margin: 10%;
+}
+.btn_pst {
+    text-align: right;
+    margin: 15%;
+}
+.btn-vip {
+    border:1px solid deepskyblue;
+    width: 143px;
+    height: 43px;
+    display: inline-block;
+    border-radius: 5px;
+
+    background: deepskyblue;
+    color:#fff;
+    font-weight:bold;
+    font-size:18px;
+    text-align: center;
+    line-height: 43px;
+    text-decoration: none;
+}

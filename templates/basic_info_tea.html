@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../static/image/favicon.ico" type="image/x-icon">
   <title>元智校内网</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/css/background_all.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/basic_info_tea.css">
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../static/js/basic_info_tea.js"></script>
+  <script type="text/javascript" src="../static/js/basic_info_tea.js"></script>
 </head>
 <body>
     <div class="container">
         <p id="wrap">
-        <div id="navButton" class="closed">- 元智教育 -
+        <div id="navButton" class="closed">
+            <img src="../static/image/32x51.ico" alt="Logo">&nbsp&nbsp- 元智教育 -
             <div class="bar left"></div>
             <div class="bar top"></div>
             <div class="bar right"></div>
@@ -22,13 +25,13 @@
         </div>
         </p>
         <br>
-        <h1 class="cs">个人资料</h1>
-        <div class="circle cir"><p class="c">C</p>
+        <h1 class="cs text-info">个人资料</h1>
+        <div class="circle cir"><p class="c"></p>
             <div class="circle one"></div>
             <div class="circle two">
             </div>
         </div>
-        <form class="form-horizontal wrapper" method="POST" action="{% url 'register_info_tch' %}">
+        <form class="form-horizontal wrapper" method="POST" action="#">
             <div class="bar left"></div>
             <div class="bar top"></div>
             <div class="bar right"></div>
@@ -44,7 +47,7 @@
             <div class="form-group">
                 <p class="col-sm-4 float-left">性别</p>
                 <div class="col-sm-8 radio float-left">
-                  &nbsp&nbsp&nbsp<input type="radio" name="gender" >男
+                  &nbsp&nbsp&nbsp<input type="radio" name="gender" checked="checked">男
                   &nbsp&nbsp&nbsp<input type="radio" name="gender" >女
                 </div>
             </div>
@@ -52,20 +55,20 @@
                     <a data-toggle="tooltip" data-placement="top" title="真实学历！" class="col-sm-4 float-left"><p>学历</p></a>
                 <div class="col-sm-8 radio float-left">
                       &nbsp&nbsp&nbsp<input type="radio" name="degree">专科/本科
-                      &nbsp&nbsp&nbsp<input type="radio" name="degree">硕士研究生
+                      &nbsp&nbsp&nbsp<input type="radio" name="degree" checked="checked">硕士研究生
                       &nbsp&nbsp&nbsp<input type="radio" name="degree">博士研究生
                 </div>
             </div>
             <div class="form-group">
                     <p class="col-sm-4 float-left">所学专业</p>
                 <div class="col-sm-8 float-left">
-                    <input type="text" class="form-control" id="major" placeholder="研究原子弹..." name="major">
+                    <input type="text" class="form-control" id="major" placeholder="计算机..." name="major">
                 </div>
             </div>
             <div class="form-group">
                     <p class="col-sm-4 float-left">毕业院校</p>
                 <div class="col-sm-8 float-left">
-                    <input type="text" class="form-control" id="school" placeholder="黄埔军校..." name="school">
+                    <input type="text" class="form-control" id="school" placeholder="北京大学..." name="school">
                 </div>
             </div>
             <div class="form-group">
@@ -81,7 +84,7 @@
             </div>
             <div class="form-group info">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <a class="btn btn-info" role="button" id="infobtn">注册</a>
+                  <button class="btn btn-info" role="button" >注册</button>
                 </div>
             </div>
         </form>
