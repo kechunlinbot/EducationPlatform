@@ -73,3 +73,12 @@
     line-height: 43px;
     text-decoration: none;
 }
+.nav_cs {
+  position:fixed;
+  top:20px;
+  right:30px;
+  font-size: 20px;
+}
+.nav_cs li{
+  list-style: none;
+}
