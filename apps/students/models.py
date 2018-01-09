@@ -29,7 +29,7 @@ class Student(models.Model):
     learning = models.CharField(max_length=200, verbose_name='学习经历')
     allergies = models.CharField(max_length=200, verbose_name='过敏史')
     class_name = models.ForeignKey(Class, verbose_name='所属班级')
-    add_time = models.DateTimeField(default=timezone.now, verbose_name='添加时间')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
 
     class Meta:
         verbose_name = '学生管理'
@@ -37,3 +37,5 @@ class Student(models.Model):
 
     def __repr__(self):
         return self.en_name
+
+    __str__ = __repr__
