@@ -23,22 +23,22 @@
 <div class="panel">
     <input type="radio" id="switch-open" name="switch"/>
     <input type="radio" id="switch-close" name="switch"/>
-    <div class="login">
-        <form  action="{% url 'register_tch' %}" method="POST">{% csrf_token %}
-            <div class="group"><i class="fa fa-users" aria-hidden="true"></i>
-                <input type="text" id="email" name="en_name" placeholder="用户名"/>
-                <label title="必须是英文名！"></label>
-            </div>
-            <div class="group"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                <input type="password" id="password" name="passwd" placeholder="密码"/>
-                <label title="特殊字符只接受 _"></label>
-            </div>
-            <div id="warning">
-                <p>请输入正确的用户名和密码!</p>
-            </div>
-            <input id="infobtn" type="submit" value="提交"/>
-        </form>
-    </div>
+    <form  action="{% url 'register_tch' %}" method="POST">{% csrf_token %}
+        <div class="login">
+                <div class="group"><i class="fa fa-users" aria-hidden="true"></i>
+                    <input type="text" id="email" name="en_name" placeholder="用户名"/>
+                    <label title="必须是英文名！"></label>
+                </div>
+                <div class="group"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    <input type="password" id="password" name="passwd" placeholder="密码"/>
+                    <label title="特殊字符只接受 _"></label>
+                </div>
+                <div id="warning">
+                    <p>请输入正确的用户名和密码!</p>
+                </div>
+                <input id="infobtn" type="submit" value="提交"/>
+        </div>
+    </form>
     <div class="register">
         <div class="inner">
             <h1>REGISTER</h1>
