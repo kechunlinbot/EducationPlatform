@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'EducationPlatform',
         'USER': 'root',
-        'PASSWORD': 'csq347',
+        'PASSWORD': 'happya11',
         'HOST': '127.0.0.1'
     }
 }

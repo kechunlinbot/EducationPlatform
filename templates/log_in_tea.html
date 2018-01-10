@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="../static/image/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
   <title>元智校内网</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 <body>
 <div class="container">
   <h1 class="text-info">
-      <img src="../static/image/32x51.ico" alt="Logo">
+      <img src="../static/images/32x51.ico" alt="Logo">
       元智教育
   </h1>
   <div class="cover atvImg">
@@ -23,13 +23,13 @@
     <div class="atvImg-layer"></div>
   </div>
   <div class="text">
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="{% url 'submit_login_info_tch' %}" method="POST">{% csrf_token %}
       <div class="form-group">
         <label for="inputName" class="col-sm-4 control-label float_left">
           <a data-toggle="tooltip" data-placement="top" title="注册时的英文名">用户名</a>
         </label>
         <div class="col-sm-8 float_left">
-          <input type="text" class="form-control" id="inputName" placeholder="Name" name="en_name">
+          <input type="text" class="form-control" id="inputName" placeholder="en_name" name="en_name">
         </div>
       </div>
       <div class="form-group">
@@ -37,7 +37,7 @@
           密码
         </label>
         <div class="col-sm-8 float_left">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="passwd">
+          <input type="password" class="form-control" id="inputPassword" placeholder="passwd" name="passwd">
         </div>
       </div>
       <div class="form-group">
@@ -54,7 +54,7 @@
           <p>请输入正确的用户名和密码!</p>
         </div>
         <div class="col-sm-offset-2 col-sm-10">
-          <a href="#" class="btn btn-info" id="infobtn" role="button">登录</a>
+           <input class="btn btn-info" type="submit" value="登录" >
         </div>
       </div>
     </form>

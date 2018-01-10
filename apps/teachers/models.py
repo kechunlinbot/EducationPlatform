@@ -18,7 +18,7 @@ DEGREES = (
 
 class Teacher(models.Model):
     en_name = models.CharField(max_length=20, unique=True, verbose_name='英文名')
-    passwd = models.CharField(max_length=50, verbose_name='密码')
+    passwd = models.CharField(max_length=200, verbose_name='密码')
     real_name = models.CharField(max_length=20, verbose_name='真实姓名')
     gender = models.CharField(max_length=6, choices=GENDERS, verbose_name='性别', default='male')
     degree = models.CharField(max_length=13, choices=DEGREES, verbose_name='学历', default='undergraduate')

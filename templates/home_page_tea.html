@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="../static/image/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
   <title>元智校内网</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,14 +22,14 @@
     </div>
     <div class="text">
         <h1 class="text-info">
-            <img src="../static/image/32x51.ico" alt="Logo">
+            <img src="../static/images/32x51.ico" alt="Logo">
             元智教育
             <br>
             <small>教师</small>
         </h1>
         <br>
-        <a href="#" class="btn btn-info" role="button">注册</a>
-        <a href="#" class="btn btn-info" role="button">登录</a>
+        <a href="{% url 'register_tch' %}" class="btn btn-info" role="button">注册</a>
+        <a href="{% url 'login_tch' %}" class="btn btn-info" role="button">登录</a>
     </div>
 </div>
 <script type="text/javascript" src="../static/js/home_page_all.js"></script>

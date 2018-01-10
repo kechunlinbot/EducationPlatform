@@ -1,94 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="../static/image/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
   <title>元智校内网</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../static/css/background_all.css">
-  <link rel="stylesheet" href="../static/css/basic_info_tea_1.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/background_all.css">
+  <link rel="stylesheet" href="../static/css/basic_info_stu.css">
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../static/js/basic_info_tea.js"></script>
+    <script type="text/javascript" src="../static/js/basic_info_stu.js"></script>
 </head>
 <body>
     <div class="container">
         <p id="wrap">
         <div id="navButton" class="closed">
-            <img src="../static/image/32x51.ico" alt="Logo">&nbsp&nbsp- 元智教育 -
-            <div class="bar left"></div>
-            <div class="bar top"></div>
-            <div class="bar right"></div>
-            <div class="bar bottom"></div>
+            <img src="../static/images/32x51.ico" alt="Logo">&nbsp&nbsp- 元智教育 -
         </div>
         </p>
         <br>
-        <h1 class="cs text-info">个人资料</h1>
-        <div class="circle cir"><p class="c"></p>
-            <div class="circle one"></div>
-            <div class="circle two">
+        <br>
+        <h4 class="text-info">老师个人信息</h4>
+        <form  action="{% url 'submit_register_info_tch' %}" method="POST">{% csrf_token %}
+            <!--将行内元素添加float-left可将元素变为同一行-->
+          <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label float-left">
+                <a data-toggle="tooltip" data-placement="top" title="真实姓名！">姓名</a>
+            </label>
+            <div class="col-sm-8 float-left">
+              <input type="text" class="form-control" id="inputName" placeholder="姓名" name="real_name">
             </div>
-        </div>
-        <form class="form-horizontal wrapper" method="POST" action="#">
-            <div class="bar left"></div>
-            <div class="bar top"></div>
-            <div class="bar right"></div>
-            <div class="bar bottom"></div>
-            <div class="form-group">
-                <label for="inputName" class="col-sm-4 control-label float-left">
-                    <a data-toggle="tooltip" data-placement="top" title="真实姓名！">姓名</a>
-                </label>
-                <div class="col-sm-8 float-left">
-                    <input type="text" class="form-control" id="inputName" placeholder="刘金瑞" name="real_name">
-                </div>
-            </div>
-            <div class="form-group">
-                <p class="col-sm-4 float-left">性别</p>
-                <div class="col-sm-8 radio float-left">
-                  &nbsp&nbsp&nbsp<input type="radio" name="gender" checked="checked">男
-                  &nbsp&nbsp&nbsp<input type="radio" name="gender" >女
-                </div>
-            </div>
-            <div class="form-group">
-                    <a data-toggle="tooltip" data-placement="top" title="真实学历！" class="col-sm-4 float-left"><p>学历</p></a>
-                <div class="col-sm-8 radio float-left">
-                      &nbsp&nbsp&nbsp<input type="radio" name="degree">专科/本科
-                      &nbsp&nbsp&nbsp<input type="radio" name="degree" checked="checked">硕士研究生
-                      &nbsp&nbsp&nbsp<input type="radio" name="degree">博士研究生
-                </div>
-            </div>
-            <div class="form-group">
-                    <p class="col-sm-4 float-left">所学专业</p>
-                <div class="col-sm-8 float-left">
-                    <input type="text" class="form-control" id="major" placeholder="计算机..." name="major">
-                </div>
-            </div>
-            <div class="form-group">
-                    <p class="col-sm-4 float-left">毕业院校</p>
-                <div class="col-sm-8 float-left">
-                    <input type="text" class="form-control" id="school" placeholder="北京大学..." name="school">
-                </div>
-            </div>
-            <div class="form-group">
-                    <p class="col-sm-4 float-left">个人邮箱</p>
-                <div class="col-sm-8 float-left">
-                    <input type="email" class="form-control" id="inputemail" placeholder="9999999@qq.com..." name="email">
-                </div>
-            </div>
-            <input type="hidden" name="name" value="{{ name }}">
-            <input type="hidden" name="password" value="{{ password }}">
-            <div class="warning">
+          </div>
 
+            <div class="form-group">
+                <p class="col-sm-2 float-left">性别</p>
+              <div class="radio col-sm-8 float-left">
+                  &nbsp&nbsp&nbsp<input type="radio" name="gender" value="male" checked="checked">男
+                  &nbsp&nbsp&nbsp<input type="radio" name="gender" value="female" checked="checked">女
+              </div><br>
+          </div>
+
+          <div class="form-group">
+                <a data-toggle="tooltip" data-placement="top" title="真实学历！" class="col-sm-2 float-left">学历</a>
+              <div class="radio col-sm-8 float-left">
+                  <!--尽量不要使用&nbsp，实现样式分离-->
+                  &nbsp&nbsp&nbsp<input type="radio" name="degree" value="undergraduate" checked="checked">专科/本科
+                  &nbsp&nbsp&nbsp<input type="radio" name="degree" vale checked="checked">硕士研究生
+                  &nbsp&nbsp&nbsp<input type="radio" name="degree" checked="checked">博士研究生
+              </div><br>
+          </div>
+
+
+              <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label float-left">
+                <a data-toggle="tooltip" data-placement="top" title="毕业学校">毕业学校</a>
+            </label>
+            <div class="col-sm-8 float-left">
+              <input type="text" class="form-control"  placeholder="毕业学校" name="school">
             </div>
-            <div class="form-group info">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button class="btn btn-info" role="button" >注册</button>
-                </div>
+          </div>
+
+            <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label float-left">
+                <a data-toggle="tooltip" data-placement="top" title="专业">专业</a>
+            </label>
+            <div class="col-sm-8 float-left">
+              <input type="text" class="form-control"  placeholder="专业" name="major">
+            </div>
+          </div>
+
+              <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label float-left">
+                <a data-toggle="tooltip" data-placement="top" title="个人邮箱">个人邮箱</a>
+            </label>
+            <div class="col-sm-8 float-left">
+              <input type="text" class="form-control"  placeholder="个人邮箱" name="email">
+            </div>
+          </div>
+
+            <input type="hidden" name="en_name" value="{{ en_name }}">
+            <input type="hidden" name="passwd" value="{{ passwd }}">
+
+            <div class="the-button info">
+            <input class="btn btn-info" type="submit" value="注册" >
             </div>
         </form>
-    </div>
+</div>
 </body>
 </html>

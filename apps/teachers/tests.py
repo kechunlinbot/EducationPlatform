@@ -15,3 +15,8 @@ class HomepageTest(TestCase):
     def test_url_homepage_tch_resolves_to_homepage_tch_view(self):
         found = resolve('/homepage_tch/')
         self.assertEqual(found.func, teachers.views.homepage_tch)
+
+class TchRegisterTest(TestCase):
+    def test_url_register_tch_resolves_to_register_tch_view(self):
+        found = resolve('/register_tch/')
+        self.assertEqual(found.func, teachers.views.TchRegisterView)
