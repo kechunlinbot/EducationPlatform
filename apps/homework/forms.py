@@ -8,6 +8,7 @@ class AssignmentsForm(forms.Form):
     course = forms.CharField(required=True)
     first_module = forms.CharField(required=True)
     second_module = forms.CharField(required=True)
+    refer_complete_time = forms.CharField(required=True)
     is_bonus = forms.CharField(required=True)
     is_release = forms.CharField(required=True)
 

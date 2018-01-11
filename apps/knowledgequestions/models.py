@@ -26,7 +26,7 @@ class Course(models.Model):
     def __repr__(self):
         return self.name
 
-    __str__ = __repr__
+    # __str__ = __repr__
 
 
 class Module(models.Model):
@@ -73,7 +73,7 @@ class QuestionBank(models.Model):
     title = models.CharField(max_length=20, verbose_name='题目名称')
     content = models.CharField(max_length=500, verbose_name='题目内容')
     difficulty_level = models.CharField(max_length=10, choices=DIFFICULTY_LEVELS, default='beginner', verbose_name='难易程度')
-    module = models.ForeignKey(Module, verbose_name='知识模块')
+    knowledgebase = models.ForeignKey(KnowledgeBase, default='', verbose_name='二级模块')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     modified_time = models.DateTimeField(auto_now=True, verbose_name='最后一次修改时间')
     creator = models.ForeignKey(User, related_name='+', verbose_name='创建者')

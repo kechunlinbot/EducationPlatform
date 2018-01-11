@@ -1,16 +1,54 @@
+# 140.143.189.20  2017yuanzhi
+#
 from django.shortcuts import render
 from .models import Submission, Assignment
-from django.views.generic import View
+from django.views.generic import View, ListView
 from knowledgequestions.models import Course
+from classes.models import Class
+from knowledgequestions .models import Module, KnowledgeBase, QuestionBank
 
 # Create your views here.
 
 class PublishView(View):
     def get(self, request):
+        course_name = request.GET.get('q')
+        course = Course.objects.filter(name=course_name)
+        modules = Module.objects.filter(course=course)
+        info = {'en_name': request.session.get(id),
+                'modules':modules
+                }
+        return render(request, 'publish_tasks.html', info)
+
+def submit_module_info(request):
+    if request.method == 'GET':
+        module_name = request.GET.get('q')
+        print(module_name)
+        module = Module.objects.filter(name = module_name)
+        knowledgebases = KnowledgeBase.objects.filter(module=module)
+        info = {'en_name': request.session.get(id),
+                'knowledgebases': knowledgebases
+                }
+        return render(request, 'publish_tasks.html', info)
+    else:
         return render(request, 'publish_tasks.html')
 
-    def post(self):
-        pass
+def submit_knowledgebase_info(request):
+    print('hello world')
+    if request.method == 'GET':
+        knowledgebase_name = request.GET.get('q')
+        print(knowledgebase_name)
+        knowledgebase = KnowledgeBase.objects.filter(name=knowledgebase_name)
+        print(knowledgebase)
+        questionbanks = QuestionBank.objects.filter(knowledgebase=knowledgebase)
+        print(questionbanks,'&'*100)
+        info = {'en_name': request.session.get(id),
+                'questionbanks': questionbanks
+                }
+        return render(request, 'publish_tasks.html', info)
+    else:
+        return render(request, 'publish_tasks.html')
+
+
 
 class ViewTheDegreeOfCompletionView(View):
     def get(self, request):

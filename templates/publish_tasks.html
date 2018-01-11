@@ -1,188 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
-  <title> 元智校内网</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/css/background_all.css">
-  <link rel="stylesheet" href="../static/css/view_detail_of_completion_tch.css">
-  <script src="../static/js/jquery.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <title> 元智校内网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/background_all.css">
+    <link rel="stylesheet" href="../static/css/view_detail_of_completion_tch.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/publish_tasks.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-      <ul class="navbar-nav">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <ul class="navbar-nav">
         <li>
             <img src="../static/images/32x51.ico" alt="Logo">&nbsp&nbsp&nbsp
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'publish_tasks' %}">作业发布</a>
+            <a class="nav-link" href="{% url 'publish_tasks' %}">作业发布</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'view_the_degree_of_completion_tch' %}">作业完成度</a>
+            <a class="nav-link" href="{% url 'view_the_degree_of_completion_tch' %}">作业完成度</a>
         </li>
-      </ul>
-  </nav>
-  <div class="nav_cs">
-      <ul>
-          <li>
-            <p>dengguo</p>
-            <a href="{% url 'logout_tch'  %}"> 注销</a>
-          </li>
-      </ul>
-  </div>
-  <div style="text-align:center;">
-  <div style="">
-    <h2 class="text-info">作业发布</h2>
-    <div class="float-left first">
-        <form action="#">
+    </ul>
+</nav>
+<div class="nav_cs">
+    <ul>
+        <li>
+            <p>{{ en_name }}</p>
+            <a href="{% url 'logout_tch' %}"> 注销</a>
+        </li>
+    </ul>
+</div>
+<div style="text-align:center;">
+    <form action="{% url 'submit_course_info' %}" method="POST">{% csrf_token %}
+    <div style="">
+        <h2 class="text-info">作业发布</h2>
+        <div class="float-left first">
+
             <select class="sel_color" name="class_name" id="">
                 <option value='#'>班级</option>
-                <option value='#'>0826</option>
-                <option value='#'>1026 </option>
+                {% for class in classes %}
+                    <option value='{{ class.name }}'>{{ class.name }}</option>
+                {% endfor %}
             </select>
-        </form>
-    </div>
-    <div class="float-left">
-        <form action="#">
-            <select class="sel_color" name="course" id="">
+        </div>
+        <div class="float-left">
+            <select class="sel_color" name="course" id="" onclick="course_1(this.value)">
                 <option value="#">课程</option>
-                <option value="#">Python</option>
-                <option value="#">Java</option>
-                <option value="#">MySQL</option>
+                {% for course in courses %}
+                    <option value="{{ course.name }}">{{ course.name }}</option>
+                {% endfor %}
             </select>
-        </form>
-    </div>
-    <div class="float-left">
-        <form action="#">
-            <select class="sel_color" name="first_module" id="">
-                <option value="#">章节</option>
-                <option value="#">元组</option>
-                <option value="#">列表</option>
-                <option value="#">字符串</option>
+        </div>
+        {#        </form>#}
+        <div class="float-left">
+            <select class="sel_color" name="first_module" id="My_module" onclick="course_2(this.value)">
+                {% for module in modules %}
+                    <option value="{{ module.name }}">{{ module.name }}</option>
+                {% endfor %}
             </select>
-        </form>
-    </div>
-    <div class="float-left">
-        <form action="#">
-            <select class="sel_color" name="second_module" id="">
-                <option value="#">模块</option>
-                <option value="#">一级</option>
-                <option value="#">二级</option>
-                <option value="#">三级</option>
-            </select>
-        </form>
-    </div>
+        </div>
+            <div class="float-left">
+
+                <select class="sel_color" name="second_module" id="Second_module" onclick="course_3(this.value)">
+                    {% for knowledgebase in knowledgebases %}
+                        <option value="{{ knowledgebase.name }}">{{ knowledgebase.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
     </div>
     <div style="clear:both;"></div>
 
     <div class="col-md-12 column">
-      <div class="panel-group con" id="panel-853706">
-        <div class="panel panel-default con_color">
-          <div class="panel-heading">
-             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-383422">题目1</a>
-          </div>
-          <div id="panel-element-383422" class="panel-collapse collapse">
-            <div class="panel-body">
-                            <form action="#">
-                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                                题目难度:<p>{{ nandu }}</p>
-                                参考完成时间:<p>{{ time }}</p>
-                                是否加分题: <input type="radio" name="is_bonus" value="no" checked="checked">不是
-                                          <input type="radio" name="is_bonus" value="yes">是
+        <div class="panel-group con" id="panel-853706">
+            <div class="panel panel-default con_color">
+                <div class="panel-heading">
+                    <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706"
+                       href="#panel-element-383422">题目1</a>
+                </div>
+                <div id="panel-element-383422" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form action="#">
+                            {% for questionbank in questionbanks %}
+                                <p>{{ questionbank.title }}</p>
+                                <p>{{ questionbank.content }}</p>
+                                题目难度:<p>{{ questionbank.difficulty_level }}</p>
+                                参考完成时间(min)：<input type="text" name="refer_complete_time">
+                                是否加分题: <input type="radio" name="is_bonus" value="0" checked="checked">否
+                                <input type="radio" name="is_bonus" value="1">是
                                 <br>
-                                是否发布此题：<input type="radio" name="is_release" value="no" checked="checked">不
-                                            <input type="radio" name="is_release" value="yes">好
-                            </form>
-                        </div>
-          </div>
-        </div>
-        <div class="panel panel-default con_color">
-          <div class="panel-heading">
-             <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395559">题目2</a>
-          </div>
-          <div id="panel-element-395559" class="panel-collapse collapse">
-            <div class="panel-body">
-                            <form action="#">
-                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                                题目难度:<p>{{ nandu }}</p>
-                                参考完成时间:<p>{{ time }}</p>
-                                是否加分题: <input type="radio" name="is_bonus" value="no" checked="checked">不是
-                                          <input type="radio" name="is_bonus" value="yes">是
-                                <br>
-                                是否发布此题：<input type="radio" name="is_release" value="no" checked="checked">不
-                                            <input type="radio" name="is_release" value="yes">好
-                            </form>
+                                是否发布此题：<input type="radio" name="is_release" value="0" checked="checked">否
+                                <input type="radio" name="is_release" value="1">是
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-                <div class="panel panel-default con_color">
-          <div class="panel-heading">
-             <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395558">题目3</a>
-          </div>
-          <div id="panel-element-395558" class="panel-collapse collapse">
-            <div class="panel-body">
-                            <form action="#">
-                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                                题目难度:<p>{{ nandu }}</p>
-                                参考完成时间:<p>{{ time }}</p>
-                                是否加分题: <input type="radio" name="is_bonus" value="no" checked="checked">不是
-                                          <input type="radio" name="is_bonus" value="yes">是
-                                <br>
-                                是否发布此题：<input type="radio" name="is_release" value="no" checked="checked">不
-                                            <input type="radio" name="is_release" value="yes">好
-                            </form>
-            </div>
-          </div>
-        </div>
-                <div class="panel panel-default con_color">
-          <div class="panel-heading">
-             <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395560">题目4</a>
-          </div>
-          <div id="panel-element-395560" class="panel-collapse collapse">
-            <div class="panel-body">
-                            <form action="#">
-                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                                题目难度:<p>{{ nandu }}</p>
-                                参考完成时间:<p>{{ time }}</p>
-                                是否加分题: <input type="radio" name="is_bonus" value="no" checked="checked">不是
-                                          <input type="radio" name="is_bonus" value="yes">是
-                                <br>
-                                是否发布此题：<input type="radio" name="is_release" value="no" checked="checked">不
-                                            <input type="radio" name="is_release" value="yes">好
-                            </form>
-            </div>
-          </div>
-        </div>
-                <div class="panel panel-default con_color">
-          <div class="panel-heading">
-             <a class="panel-title" data-toggle="collapse" data-parent="#panel-853706" href="#panel-element-395561">题目5</a>
-          </div>
-          <div id="panel-element-395561" class="panel-collapse collapse">
-            <div class="panel-body">
-                            <form action="#">
-                                <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                                题目难度:<p>{{ nandu }}</p>
-                                参考完成时间:<p>{{ time }}</p>
-                                是否加分题: <input type="radio" name="is_bonus" value="no">不是
-                                          <input type="radio" name="is_bonus" value="yes">是
-                                <br>
-                                是否发布此题：<input type="radio" name="is_release" value="no">不
-                                            <input type="radio" name="is_release" value="yes">好
-                            </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <br>
     <a href="#">
-        <button type="button" class="sel_color">发布</button>
+        <input type="submit" class="sel_color" value="发布">
     </a>
-    </div>
- </body>
+
+        </form>
+</div>
+</body>
 </html>

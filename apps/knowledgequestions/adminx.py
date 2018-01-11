@@ -23,9 +23,9 @@ class KnowledgeBaseAdmin(object):
 
 
 class QuestionBankAdmin(object):
-    list_display = ['title', 'content', 'difficulty_level', 'module', 'created_time']
-    search_fields = ['title', 'content', 'difficulty_level', 'module__name']
-    list_filter = ['title', 'content', 'difficulty_level', 'module', 'created_time']
+    list_display = ['title', 'content', 'difficulty_level', 'knowledgebase', 'created_time']
+    search_fields = ['title', 'content', 'difficulty_level', 'knowledgebase__name']
+    list_filter = ['title', 'content', 'difficulty_level', 'knowledgebase', 'created_time']
 
 
 xadmin.site.register(Course, CourseAdmin)

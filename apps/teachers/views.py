@@ -7,6 +7,9 @@ from django.views.generic import View
 from .forms import TchRegForm, TchInfoForm, TchLogForm
 from .models import Teacher
 from django.contrib.auth.hashers import make_password, check_password
+from knowledgequestions.models import Course
+from classes.models import Class
+from knowledgequestions .models import Module, KnowledgeBase, QuestionBank
 
 # Create your views here.
 def homepage_tch(request):
@@ -73,9 +76,16 @@ class TchLoginView(View):
                     print(result)
                     if result == 1:
                         request.session['teacher_id'] = teacher.id
-                        return render(request, 'publish_tasks.html')
+
+                        classes = Class.objects.all()
+                        courses = Course.objects.all()
+                        info = {
+                            'classes':classes,
+                            'courses':courses,
+                            'en_name':en_name,
+                        }
+                        return render(request, 'publish_tasks.html', info)
                     else:
-                        print('hello')
                         return render(request, 'log_in_tea.html', {'tch_log_form': tch_log_form})
                 else:
                     return render(request, 'register_info_tea.html')
