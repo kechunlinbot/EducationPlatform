@@ -1,23 +1,28 @@
 # 140.143.189.20  2017yuanzhi
 #
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Submission, Assignment
 from django.views.generic import View, ListView
 from knowledgequestions.models import Course
 from classes.models import Class
 from knowledgequestions .models import Module, KnowledgeBase, QuestionBank
+import json
 
 # Create your views here.
 
 class PublishView(View):
     def get(self, request):
+        #print('hello world!', '&'*100)
         course_name = request.GET.get('q')
         course = Course.objects.filter(name=course_name)
         modules = Module.objects.filter(course=course)
-        info = {'en_name': request.session.get(id),
-                'modules':modules
-                }
-        return render(request, 'publish_tasks.html', info)
+        module_dict = {}
+        for module in modules:
+            module_name = module.name
+            print(module_name)
+            module_dict['%s'% module_name] = module_name
+            print(module_dict)
+        return HttpResponse(json.dumps(module_dict), content_type="application/json")
 
 def submit_module_info(request):
     if request.method == 'GET':

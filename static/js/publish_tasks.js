@@ -15,13 +15,25 @@ function course_1(str)
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-      document.getElementById("My_module").innerHTML=xmlhttp.responseText;
-    }
-  };
+        var module_list = JSON.parse(xmlhttp.responseText);
+        console.log(module_list,'&&&&');
+        console.log(typeof module_list,'&&&&');
+        console.log(module_list.length,'****');
+        // for (var i = 0; i < xmlhttp.responseText.length; i++){
+        //     var a = document.createElement('option');
+        //     a.value = xmlhttp.responseText[i];
+        //     a.innerHTML = xmlhttp.responseText[i];
+        //     a.onclick = course_1(xmlhttp.responseText[i]);
+        //     second_module.appendChild(a)
+     }
+
+    };
+  // };
   xmlhttp.open("GET","/submit_course_info?q="+str,true);
   // xmlhttp.setRequestHeader('content-type','application/x-www-form-urlencoded');
   xmlhttp.send();
 }
+
 
 function course_2(str)
 {

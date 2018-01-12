@@ -21,17 +21,21 @@
       right:95px;
       font-size: 20px;
   }
+
   .nav_cs li{
       list-style: none;
   }
+
   .first{
 		margin-left:27%;
   }
+
   .panel-group{
 		width:50%;
 		margin-left:25%;
 		margin-bottom:60px;
   }
+
   .sel_color{
       width: 65px;
       height: 25px;

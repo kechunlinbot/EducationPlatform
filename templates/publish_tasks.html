@@ -36,80 +36,80 @@
     </ul>
 </div>
 <div style="text-align:center;">
-    <form action="{% url 'submit_course_info' %}" method="POST">{% csrf_token %}
-    <div style="">
-        <h2 class="text-info">作业发布</h2>
-        <div class="float-left first">
+{#    <form action="{% url 'submit_course_info' %}" method="POST">{% csrf_token %}#}
+        <div style="">
+            <h2 class="text-info">作业发布</h2>
+            <div class="float-left first">
 
-            <select class="sel_color" name="class_name" id="">
-                <option value='#'>班级</option>
-                {% for class in classes %}
-                    <option value='{{ class.name }}'>{{ class.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="float-left">
-            <select class="sel_color" name="course" id="" onclick="course_1(this.value)">
-                <option value="#">课程</option>
-                {% for course in courses %}
-                    <option value="{{ course.name }}">{{ course.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        {#        </form>#}
-        <div class="float-left">
-            <select class="sel_color" name="first_module" id="My_module" onclick="course_2(this.value)">
-                {% for module in modules %}
-                    <option value="{{ module.name }}">{{ module.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
+                <select class="sel_color" name="class_name" id="">
+                    <option value='#'>班级</option>
+                    {% for class in classes %}
+                        <option value='{{ class.name }}'>{{ class.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="float-left">
+                <select class="sel_color" name="course" id="" onchange="course_1(this.value)">
+                    <option value="#">课程</option>
+                    {% for course in courses %}
+                        <option value="{{ course.name }}">{{ course.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {#        </form>#}
+            <div class="float-left">
+                <select class="sel_color" name="first_module" id="My_module" onchange="course_2(this.value)">
+{#                    {% for module in modules %}#}
+{#                        <option value="{{ module.name }}">{{ module.name }}</option>#}
+{#                    {% endfor %}#}
+                </select>
+            </div>
             <div class="float-left">
 
-                <select class="sel_color" name="second_module" id="Second_module" onclick="course_3(this.value)">
+                <select class="sel_color" name="second_module" id="Second_module" onchange="course_3(this.value)">
                     {% for knowledgebase in knowledgebases %}
                         <option value="{{ knowledgebase.name }}">{{ knowledgebase.name }}</option>
                     {% endfor %}
                 </select>
 
             </div>
-    </div>
-    <div style="clear:both;"></div>
+        </div>
+        <div style="clear:both;"></div>
 
-    <div class="col-md-12 column">
-        <div class="panel-group con" id="panel-853706">
-            <div class="panel panel-default con_color">
-                <div class="panel-heading">
-                    <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706"
-                       href="#panel-element-383422">题目1</a>
-                </div>
-                <div id="panel-element-383422" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <form action="#">
-                            {% for questionbank in questionbanks %}
-                                <p>{{ questionbank.title }}</p>
-                                <p>{{ questionbank.content }}</p>
-                                题目难度:<p>{{ questionbank.difficulty_level }}</p>
-                                参考完成时间(min)：<input type="text" name="refer_complete_time">
-                                是否加分题: <input type="radio" name="is_bonus" value="0" checked="checked">否
-                                <input type="radio" name="is_bonus" value="1">是
-                                <br>
-                                是否发布此题：<input type="radio" name="is_release" value="0" checked="checked">否
-                                <input type="radio" name="is_release" value="1">是
-                            {% endfor %}
-                        </form>
+        <div class="col-md-12 column">
+            <div class="panel-group con" id="panel-853706">
+                <div class="panel panel-default con_color" id="content">
+                    <div class="panel-heading">
+                        <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-853706"
+                           href="#panel-element-383422">题目1</a>
+                    </div>
+                    <div id="panel-element-383422" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form action="#">
+                                {% for questionbank in questionbanks %}
+                                    <p>{{ questionbank.title }}</p>
+                                    <p>{{ questionbank.content }}</p>
+                                    题目难度:<p>{{ questionbank.get_difficulty_level_display }}</p>
+                                    参考完成时间(min)：<input type="text" name="refer_complete_time">
+                                    是否加分题: <input type="radio" name="is_bonus" value="0" checked="checked">否
+                                    <input type="radio" name="is_bonus" value="1">是
+                                    <br>
+                                    是否发布此题：<input type="radio" name="is_release" value="0" checked="checked">否
+                                    <input type="radio" name="is_release" value="1">是
+                                {% endfor %}
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <br>
-    <a href="#">
-        <input type="submit" class="sel_color" value="发布">
-    </a>
+        <br>
+{#        <a href="#">#}
+            <input type="submit" class="sel_color" value="发布">
+{#        </a>#}
 
-        </form>
+{#    </form>#}
 </div>
 </body>
 </html>

@@ -87,8 +87,9 @@ class TchLoginView(View):
                         return render(request, 'publish_tasks.html', info)
                     else:
                         return render(request, 'log_in_tea.html', {'tch_log_form': tch_log_form})
-                else:
-                    return render(request, 'register_info_tea.html')
+            else:
+                return render(request, 'register_info_tea.html')
+
 
 def logout_tch(request):
     try:
