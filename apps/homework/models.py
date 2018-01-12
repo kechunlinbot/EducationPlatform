@@ -28,7 +28,7 @@ class Assignment(models.Model):
         verbose_name_plural = verbose_name
 
     def __repr__(self):
-        return self.question
+        return self.question.title
 
     __str__ = __repr__
 
